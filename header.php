@@ -15,18 +15,6 @@
                     <div class="menu__icon">
                         <!-- .menu__icon::before -->
                     </div>
-                    <!-- <nav class="menu__body">
-                        <?php 
-                            wp_nav_menu ( array(
-                                'theme_location'       => 'header',                          
-                                'container'            => false,    
-                                'menu_id'              => false,    
-                                'echo'                 => true,
-                                'depth'                => 0,       
-                                'items_wrap'           => '<ul id="%1$s" class="menu_list %2$s">%3$s</ul>',
-                            )); 
-                        ?>
-                    </nav> -->
                     <nav class="menu__body">
                         <?php 
                             wp_nav_menu(array(
@@ -36,6 +24,20 @@
                                 'walker' => new Batoweb_Header_Menu(),
                             ));
                         ?>
+                        <div class="header-phone-in-menu">
+                            <div class="header-phone-in-menu__image">
+                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/phone_image.svg'); ?>" alt="phone">
+                            </div>
+                            
+                            <?php
+                            $phone_number = get_field('phone_number', 'option');
+
+                            if ($phone_number) : ?>
+                                <a href="tel:<?php echo preg_replace('/\D+/', '', $phone_number); ?>" class="header-phone-in-menu__number">
+                                    <?php echo $phone_number; ?>
+                                </a>
+                            <?php endif; ?>
+                        </div>
                     </nav>
                 </div>
                 <div class="logo">
