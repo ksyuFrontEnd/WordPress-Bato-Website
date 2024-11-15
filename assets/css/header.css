@@ -5,6 +5,7 @@
     width: 100%;
     z-index: 20;
     background-color: #FAFAFA;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05);
 }
 
 .header__container {
@@ -63,7 +64,6 @@
     background: #fee8ce;
     padding: 40px 41px 40px 45px;
     transition: transform 0.3s ease;
-    overflow: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -98,7 +98,7 @@
 }
 
 .menu-item {
-    font-family: "Poppins", sans-serif;
+    font-family: "Readex Pro", sans-serif;
     font-weight: 600;
     font-size: 20px;
     color: #e75624;
@@ -113,7 +113,7 @@
 }
 
 .sub-menu .menu-item {
-    font-family: "Poppins", sans-serif;
+    font-family: "Readex Pro", sans-serif;
     font-weight: 400;
     font-size: 18px;
     color: #252525;
@@ -121,15 +121,21 @@
     margin-bottom: 0;
 }
 
-
 @media screen and (min-width: 1440px) {
-    .header {
-        padding: 10px 0;
+
+    .header__container {
+        justify-content: space-between;
+        padding: 0 100px 0 112px;
+    }
+
+    .header__menu {
+        order: 2;
     }
 
     .logo {
-        width: 100px;
-        height: 100px;
+        width: 70px;
+        height: 92px;
+        order: 1;
     }
 
     .menu__body {
@@ -137,7 +143,8 @@
         padding: 0;
         transform: none;
         width: 100%;
-        overflow: hidden;
+        background: transparent;
+        flex-direction: row;
     }
 
     .menu__body::before {
@@ -152,45 +159,65 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
-        margin-left: 0;
-        margin-top: 0;
+        margin: 0;
         position: relative;
         width: 100%;
+        gap: 40px;
     }
 
-    .menu_list li {
+    .menu_list .menu-item {
         margin-bottom: 0;
     }
 
     .menu-item {
+        margin: 0;
         position: relative;
-        padding: 13px 26.5px;
         background: none;
-        border: none;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 1.05;
-        text-align: center;
-        color: #8e8e88;
-        cursor: pointer;
-        overflow: hidden;
-        transition: color 0.3s;
-        border-radius: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        font-family: "Readex Pro", sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        color: #e75624;
+        padding: 37.33px 0;
     }
 
-    .menu-item:hover {
-        color: #5E5E5B;
+    .menu-item .sub-menu {
+        position: absolute;
+        top: 100%;
+        left: -50%;
+        border-radius: 10px;
+        width: 220px;
+        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+        background: #fff;
+        padding: 27px 39px 24px 38px;
+        display: none;
+        z-index: 1000;
     }
 
-    .menu-item.active {
-        background-color: hsl(0, 0%, 90%);
-        color: #5E5E5B;
-        z-index: 1;
+    .sub-menu .menu-item {
+        font-size: 16px;
+        color: #e75624;
+        margin-top: 0;
+        padding: 0;
         position: relative;
+        transition: color 0.3s ease;
+    }
+
+    .sub-menu .menu-item:hover {
+        color: #fcb900;
+    }
+
+    .sub-menu .menu-item::after {
+        content: '';
+        display: block;
+        width: 140px;
+        height: 0;
+        border-top: 1px solid #e75624;
+        margin-top: 17px; 
+        margin-bottom: 17px; 
+    }
+
+    .sub-menu .menu-item:last-child::after {
+        content: none;
     }
 }
 
@@ -206,7 +233,14 @@
     padding: 0 4.71px;
     margin-left: auto;
     z-index: 5;
+    transition: background 0.3s ease, border 0.3s ease;
 }
+
+.header-phone:hover {
+    background: #fcb900;
+    border: 1px solid #fcb900;
+}
+
 .header-phone__image {
     width: 14px;
     height: 14px;
@@ -236,6 +270,13 @@
     border-radius: 100px;
     padding: 13px 20px;
     width: 227px;
+    height: 46px;
+    transition: background 0.3s ease, border 0.3s ease;
+}
+
+.header-phone-in-menu:hover {
+    background: #fcb900;
+    border: 1px solid #fcb900;
 }
 
 .header-phone-in-menu__image {
@@ -258,8 +299,8 @@
 }
 
 @media screen and (min-width: 1440px) {
-    .header-phone-in-menu {
-        width: 171px;
+    .header-phone {
+        display: none;
     }
     
     .header-phone-in-menu__image {
