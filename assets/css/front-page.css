@@ -1,0 +1,78 @@
+/*======================= what-section =======================*/
+
+.first-section {
+    margin-top: 52px;
+}
+
+.what-section {
+    padding: 38px;
+}
+
+@media screen and (min-width: 768px) {
+    .what-section {
+        padding: 48px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .first-section {
+        margin-top: 102px;
+    }
+
+    .what-section {
+        padding: 58px;
+    }
+}
+
+/*=================== testimonials-section ====================*/
+
+.testimonials-section {
+    padding: 38px 0px 40px 0px;
+}
+
+@media screen and (min-width: 768px) {
+    .testimonials-section {
+        padding: 48px 0px 50px 0px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .testimonials-section {
+        padding: 58px 0px 60px 0px;
+    }
+}
+
+/*====================== faq-section ==========================*/
+
+.faq-section {
+    padding: 20px 15px;
+    margin-bottom: 100px;
+}
+
+@media screen and (min-width: 768px) {
+    .faq-section {
+        padding: 30px 31px;
+        margin-bottom: 124px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .faq-section {
+        padding: 40px 111px;
+        margin-bottom: 134px;
+    }
+}
+
+/*===================== contact-section =======================*/
+
+.contact-section__container {
+    padding: 96px 457px;
+}
+
+@media screen and (min-width: 768px) {
+    
+}
+
+@media screen and (min-width: 1440px) {
+
+}
