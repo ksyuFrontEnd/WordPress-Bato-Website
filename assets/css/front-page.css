@@ -8,9 +8,47 @@
     padding: 38px;
 }
 
+.what__wrapper {
+    margin-top: 32px;
+}
+
+.what__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+}
+
+.what__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+    border-radius: 15px;
+    padding: 40px;
+    width: 100%;
+    height: 300px;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+    background: #fafafa;
+}
+
+.what__card-title {
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    color: #000;
+    margin-bottom: 12px;
+}
+
 @media screen and (min-width: 768px) {
     .what-section {
         padding: 48px;
+    }
+
+    .what__card {
+        max-width: calc((100% - 32px) / 2);
     }
 }
 
@@ -21,6 +59,10 @@
 
     .what-section {
         padding: 58px;
+    }
+
+    .what__card {
+        max-width: calc((100% - 32px * 2) / 3);
     }
 }
 
