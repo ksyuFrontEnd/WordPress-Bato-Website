@@ -1,5 +1,7 @@
-// Accordion
 document.addEventListener('DOMContentLoaded', function () {
+
+    // Accordion
+
     const accordions = document.querySelectorAll('.accordion-header');
     
     accordions.forEach((accordion) => {
@@ -22,4 +24,24 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    // Modal
+
+    const contactBtn = document.getElementById('contactBtn');
+    const modal = document.getElementById('modal');
+    const closeBtn = document.querySelector('.close');
+
+    contactBtn.onclick = function () {
+        modal.style.display = 'flex';
+    };
+
+    closeBtn.onclick = function () {
+        modal.style.display = 'none';
+    };
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
 });

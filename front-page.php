@@ -95,9 +95,61 @@
         </div>
     </section>
     <section class="contact-section section" id="contact">
-        <div class="contact-section__container">
-            <h2 class="section-title">Grow Your Company Faster
-            Than Ever Before</h2>
+        <style>
+            .contact-section {
+                background-image: url("<?php the_field('contact-section__background') ?>"); 
+            }
+        </style>
+        <div class="container">
+            <div class="contact-section__wrapper">
+                <h2 class="contact-section__title section-title"><?php the_field( 'contact-section__title' ); ?></h2>
+                <button id="contactBtn" class="contact-button">Contact Us</button>
+                <!-- Modal -->
+                <div id="modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5969 2.69746L17.1725 0.273098L9.89941 7.5462L2.62632 0.273097L0.20195 2.69746L7.47505 9.97056L0.20195 17.2437L2.62632 19.668L9.89941 12.3949L17.1725 19.668L19.5969 17.2437L12.3238 9.97056L19.5969 2.69746Z" fill="white"/>
+                            </svg>
+                        </span>
+                        <h2 class="contact-title">Contact Us</h2>
+                        <form id="contactForm" class="contact-form">
+                            <div class="contactForm__person">
+                                <div class="input-wrapper">
+                                    <label for="first_name">First Name</label>
+                                    <input type="text" id="first_name" name="first_name" required>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <label for="last_name">Last Name</label>
+                                    <input type="text" id="last_name" name="last_name" required>
+                                </div>
+                            </div>
+                            
+                                <label for="email">Your email</label>
+                                <input type="email" id="email" name="email" required>
+                            
+
+                            <label for="company">Company name (optional)</label>
+                            <input type="email" id="email" name="email">
+                            
+                            <label for="enqiry">Enqiry</label>
+                            <input id="message" name="message" rows="1" required></input>
+
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="agree" name="agree" required>
+                                <label for="agree">
+                                    I agree to the 
+                                    <a href="#" target="_blank">Terms of Use</a> and 
+                                    <a href="#" target="_blank">Privacy Policy</a>
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
