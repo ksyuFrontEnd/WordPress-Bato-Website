@@ -46,6 +46,48 @@
         <div class="container">
         <h2 class="section-title"><?php the_field( 'testimonials_title' ); ?></h2>
         <p class="section-text"><?php the_field( 'testimonials_text' ); ?></p>
+            <div class="testimonials__wrapper">
+                <?php
+
+                if( have_rows( 'testimonials__cards') ): ?>
+                    <div class="swiper testimonials__cards">
+                        <div class="swiper-wrapper">
+                            <?php
+
+                            while( have_rows('testimonials__cards') ) : the_row();
+
+                                $testimonials_text = get_sub_field('testimonials_text');
+                                $testimonials_icon = get_sub_field('testimonials_icon');
+                                $testimonials_name = get_sub_field('testimonials_name');
+                                $testimonials_position = get_sub_field('testimonials_position');
+
+                                ?>
+
+                                <div class="swiper-slide testimonials__card">
+                                    <div class="testimonials__card-text">
+                                        <?php echo esc_html( $testimonials_text ); ?>
+                                    </div>
+                                    <div class="testimonials__card-person">
+                                        <div class="person-image">
+                                            <?php if ($testimonials_icon && is_array($testimonials_icon)) : ?>
+                                                <img src="<?php echo esc_url($testimonials_icon['url']); ?>" alt="<?php echo esc_attr($testimonials_icon['alt']); ?>" />
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="person-info">
+                                            <p class="person-info__name"><?php echo esc_html( $testimonials_name ); ?></p>
+                                            <p class="person-info__position"><?php echo esc_html( $testimonials_position ); ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                    
+                            <?php endwhile; ?>
+                        </div> <!--./swiper-wrapper -->
+                    </div> <!--./swiper testimonials__cards -->
+
+                <?php else : ?>
+                    <p>We can do nothing.</p>
+                <?php endif; ?>
+            </div> <!-- ./testimonials__wrapper -->
         </div>
     </section>
     <section class="faq-section section" id="faq">

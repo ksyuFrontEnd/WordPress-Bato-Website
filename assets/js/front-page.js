@@ -1,5 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    // Swiper
+
+    const swiperTestimonials = new Swiper(".testimonials__cards", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        breakpoints: {
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 24,
+            },
+            1440: {
+                slidesPerView: 3,
+                spaceBetween: 32,
+            }
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          dynamicBullets: true,
+        },
+      });
+
     // Accordion
 
     const accordions = document.querySelectorAll('.accordion-header');

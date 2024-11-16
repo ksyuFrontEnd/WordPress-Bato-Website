@@ -29,8 +29,10 @@ if( !function_exists( 'batoweb_setup' )) {
 function batoweb_scripts() {
     wp_enqueue_style( 'main', get_stylesheet_uri () );
     wp_enqueue_style( 'batoweb-style', get_template_directory_uri() . '/assets/css/main.css', array() );
+    wp_enqueue_style('swiper-style', "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css", array('batoweb-style'));
     wp_enqueue_script('jquery');
     wp_enqueue_script( 'batoweb-scripts', get_template_directory_uri() . '/assets/js/front-page.js', array(), false, true );
+    wp_enqueue_script('swiper-scripts', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), false, true);
     wp_enqueue_script( 'header-scripts', get_template_directory_uri() . '/assets/js/header.js', array(), false, true );
     wp_localize_script('batoweb-scripts', 'myAjax', array(
         'ajaxUrl' => admin_url('admin-ajax.php'),
@@ -84,4 +86,3 @@ if (function_exists('acf_add_options_page')) {
 }
 
 require_once get_template_directory() . '/incs/class-batoweb-header-menu.php';
-
