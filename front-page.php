@@ -50,8 +50,48 @@
     </section>
     <section class="faq-section section" id="faq">
         <div class="faq-section__container">
-        <h2 class="section-title"><?php the_field( 'faq_title' ); ?></h2>
-        <p class="section-text"><?php the_field( 'faq_text' ); ?></p>
+            <div class="faq-section__image">
+            <?php 
+                $faq_image = get_field('faq_image');
+                if( !empty( $faq_image ) ): ?>
+                    <img src="<?php echo esc_url($faq_image['url']); ?>" alt="<?php echo esc_attr($faq_image['alt']); ?>" />
+                <?php endif; ?>
+            </div>
+            <div class="faq-section__wrapper">
+                <h2 class="faq-section__title section-title"><?php the_field( 'faq_title' ); ?></h2>
+                <p class="section-text"><?php the_field( 'faq_text' ); ?></p>
+                
+                <!-- Accordion -->
+                <?php if (have_rows('faq_items')) : ?>
+                    <div class="accordion">
+                        <?php while (have_rows('faq_items')) : the_row(); ?>
+                            <?php
+                            $question = get_sub_field('question');
+                            $answer = get_sub_field('answer');
+                            ?>
+                            <div class="accordion-item">
+                                <button class="accordion-header">
+                                    <span><?php echo esc_html($question); ?></span>
+                                    
+                                    <span class="icon">
+                                        <svg class="icon-plus" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 5.5V19.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M5 12.5H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <svg class="icon-minus" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 12.5H19" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                                <div class="accordion-content">
+                                    <p><?php echo esc_html($answer); ?></p>
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
+                    </div>
+                <?php endif; ?>
+
+            </div>
         </div>
     </section>
     <section class="contact-section section" id="contact">

@@ -96,6 +96,110 @@
     padding: 0 16px;
 }
 
+.faq-section__image {
+    display: none;
+}
+
+.faq-section__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.faq-section__title {
+    margin-bottom: 5px;
+}
+
+.faq-section__content {
+    margin-top: 20px;
+}
+
+/* Accordion */
+
+.accordion {
+    margin-top: 20px;
+}
+
+.accordion-item {
+    border-radius: 15px;
+    padding: 15.5px 18px;
+    width: 100%;
+    max-width: 488px;
+    background: linear-gradient(90deg, #ff6800 0%, #ff1f00 100%);
+    margin-bottom: 12px;
+}
+
+.accordion-item:last-child {
+    margin-bottom: 0;
+}
+
+.accordion-item.active {
+    background: #FAFAFA;
+    outline: 2px solid #ff1f00; 
+    outline-offset: -2px;    
+}
+
+.accordion-header {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.71;
+    color: #fff;
+    border: none;
+    text-align: left;
+    width: 100%;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.accordion-item.active .accordion-header {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+}
+
+.icon svg {
+    transition: transform 0.3s ease;
+}
+
+.icon .icon-minus {
+    display: none;
+}
+
+.accordion-item.active .icon .icon-plus {
+    display: none;
+}
+
+.accordion-item.active .icon .icon-minus {
+    display: block;
+}
+
+.accordion-content {
+    max-height: 0;
+    max-width: 341px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0;
+}
+
+.accordion-content p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 171%;
+    color: #808080;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 500px; 
+}
+
 @media screen and (min-width: 768px) {
 
     .faq-section {
@@ -106,6 +210,28 @@
         max-width: 1218px;
         padding: 0 32px;
         margin: 0 auto 124px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .accordion-item {
+        width: 488px;
+    }
+
+    .faq-section__image {
+        display: block;
+        width: 590.45px;
+        height: 520px;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+    
+    .faq-section__image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
 
@@ -118,6 +244,17 @@
     .faq-section__container {
         padding: 0;
         margin: 0 auto 134px auto;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 136px;
+    }
+
+    .faq-section__wrapper {
+        align-items: flex-start;
+    }
+
+    .faq-section__image {
+        order: 2;
     }
 }
 
