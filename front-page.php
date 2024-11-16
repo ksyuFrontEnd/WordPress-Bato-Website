@@ -51,7 +51,7 @@
 
                 if( have_rows( 'testimonials__cards') ): ?>
                     <div class="swiper testimonials__cards">
-                        <div class="swiper-wrapper">
+                        <div class="testimonials__wrapper swiper-wrapper">
                             <?php
 
                             while( have_rows('testimonials__cards') ) : the_row();
@@ -83,6 +83,8 @@
                             <?php endwhile; ?>
                         </div> <!--./swiper-wrapper -->
                     </div> <!--./swiper testimonials__cards -->
+
+                    <div class="swiper-pagination"></div>
 
                 <?php else : ?>
                     <p>We can do nothing.</p>
@@ -182,8 +184,7 @@
                                 <input type="checkbox" id="agree" name="agree" required>
                                 <label for="agree">
                                     I agree to the 
-                                    <a href="#" target="_blank">Terms of Use</a> and 
-                                    <a href="#" target="_blank">Privacy Policy</a>
+                                    <a href="#" target="_blank">Terms of Use</a> and <a href="#" target="_blank">Privacy Policy</a>
                                 </label>
                             </div>
                             

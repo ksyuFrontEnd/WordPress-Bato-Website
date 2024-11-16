@@ -1,8 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    // Links
+    
+    const menuLinks = document.querySelectorAll('.menu_list a[href*="#"]');
+    
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            const target = this.getAttribute('href');
+            
+            if (target.includes('#') && target.startsWith('/') && window.location.pathname !== '/') {
+                e.preventDefault();
+                window.location.href = target;
+            }
+        });
+    });
+
     // Swiper
 
     const swiperTestimonials = new Swiper(".testimonials__cards", {
+        loop: true,
         slidesPerView: 1,
         spaceBetween: 10,
         breakpoints: {
@@ -16,8 +32,13 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         pagination: {
-          el: ".swiper-pagination",
-          dynamicBullets: true,
+            el: '.swiper-pagination',
+            clickable: true,
+            bulletClass: 'swiper-pagination-bullet',
+            bulletActiveClass: 'swiper-pagination-bullet-active',
+            renderBullet: function (index, className) {
+              return `<span class="${className}"></span>`;
+            },
         },
       });
 
